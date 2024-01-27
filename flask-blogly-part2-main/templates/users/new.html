@@ -1,0 +1,34 @@
+{% extends '/users/base.html' %}
+
+{% block title %}Create New User {% endblock %}
+
+{% block content %}
+
+    <div class='jumbotron'>
+        <h1>Create A New User</h1>
+            <div>
+            <form method='POST'>
+                <div class='form-group row'>
+                    <label for='first_name' class='col-4 col-form-label'>First Name</label>
+                    <div class='col-8'>
+                        <input type='text' id='first_name' name='first_name' placeholder='Enter a First Name'>
+                    </div>
+                </div>
+                <div class='form-group row'>
+                    <label for='last_name' class='col-4 col-form-label'>Last Name</label>
+                    <div class='col-8'>
+                        <input type='text' id='last_name' name='last_name' placeholder='Enter a Last Name'>
+                    </div>
+                </div>
+                <div class='form-group row'>
+                    <label for='img_url' class='col-4 col-form-label'>Image URL</label>
+                    <div class='col-8'>
+                        <input type='text' id='image_url' name='image_url' placeholder='ex: http://www.yourimage.com'>
+                    </div>
+                </div>
+                <button class='btn btn-success'>Add</button>
+            </form>
+        </div>
+    </div>
+
+{% endblock %}

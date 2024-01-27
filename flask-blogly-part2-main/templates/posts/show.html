@@ -1,0 +1,36 @@
+{% extends "/posts/base.html" %}
+
+{% block title %} {{ post.title }}{% endblock %}
+
+{% block content %}
+    <h1> {{ post.title }}</h1>
+    <p>{{ post.content }}</p>
+    <p>
+        <i> By {{ post.user.full_name }} on {{ post.pretty_date }}.</i>
+    </p>
+
+    {% if post.tags %}
+    <p>
+    <b>Tags:</b>
+    {% for tag in post.tags %}
+        <a href="/tags/{{ tag.id }}"><i class="badge badge-primary">{{ tag.name }}</i></a>
+    {% endfor %}
+    </p>
+    {% endif %}
+    
+    <form>
+        <button class="btn btn-outline-primary" 
+                method="GET" 
+                action="/users/{{ post.user_id }}">Cancel
+        </button>
+        <button class="btn btn-outline-success" 
+                method="GET" 
+                action="/posts/{{ post.id }}/edit">Edit
+        </button>
+        <button class="btn btn-outline-danger" 
+                method="POST" 
+                action="/posts/{{ post.id }}/delete">Delete
+        </button>
+    </form>
+
+{% endblock %}
